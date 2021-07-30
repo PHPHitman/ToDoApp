@@ -19,4 +19,10 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', [App\Http\Controllers\TaskController::class, 'index'])->name('index');
+Route::get('/done/{id}', [App\Http\Controllers\TaskController::class, 'done'])->name('done');
+Route::get('/undone/{id}', [App\Http\Controllers\TaskController::class, 'undone'])->name('undone');
+Route::post('/store', [App\Http\Controllers\TaskController::class, 'store'])->name('store');
+Route::get('/create', [App\Http\Controllers\TaskController::class, 'create'])->name('create');
+Route::get('/edit', [App\Http\Controllers\TaskController::class, 'edit'])->name('edit');
+Route::get('/delete/{id}', [App\Http\Controllers\TaskController::class, 'delete'])->name('delete');
